@@ -1,3 +1,7 @@
+body {
+    background-color: #FFA500;
+}
+
 #heading {
     width: 100%;
     border-radius:20px;
@@ -9,4 +13,11 @@
     width: 100%;
     background-color: gray;
     text-align: center;
+}
+
+canvas {
+    border: 10px dashed blue;
+    box-shadow: 5px 10px 50px red;
+    border-radius: 25px;
+    background-color: red;
 }
