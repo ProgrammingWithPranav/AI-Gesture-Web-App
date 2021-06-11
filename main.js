@@ -9,36 +9,28 @@ function setup() {
   pose.on("pose", gotResults);
 }
 
-var noseX = 0;
-var noseY = 0;
 var rightWristX = 0;
 var leftWristX = 0;
+var text_size = 30;
 var difference = 0;
 
 function gotResults(results) {
-    if(results.length > 0) {
-        console.log(results);
-        noseX = results[0].pose.nose.x;
-        noseY = results[0].pose.nose.y;
-        console.log("Nose X = " + noseX + "nose Y = " + noseY)
+  if (results.length > 0) {
+    console.log(results);
 
-        rightWristX = results[0].pose.rightWrist.x;
-        leftWristX = results[0].pose.leftWrist.x;
-        difference = floor(leftWristX - rightWristX);
-
-        console.log("leftWristX = " + leftWristX + "rightWristX " + rightWristX + "Difference " + difference)
-
-    }
+    rightWristX = results[0].pose.rightWrist.x;
+    leftWristX = results[0].pose.leftWrist.x;
+    difference = floor(leftWristX - rightWristX);
+  }
 }
 
 function modelLoaded() {
-    console.log("Model Loaded");
+  console.log("Model Loaded");
 }
 
 function draw() {
   background(255, 0, 0);
-  document.getElementById("w&h").innerHTML = difference + "px";
-  fill(0, 255, 0);
-  stroke(0, 255 ,0);
-  square(noseX, noseY, difference);
+  textSize(difference);
+  fill("#FFE787");
+  text("Pranav", 50, 400);
 }
